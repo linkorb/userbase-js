@@ -2,6 +2,7 @@
   <input id="userbase__username" type="text" name="userbaseUsername" placeholder="Username" required>
   <input id="userbase__password" type="password" name="userbasePassword" placeholder="Password" required>
   <input id="userbase__login" type="submit" value="Login">
+  <input type="hidden" name="userbaseUrl" value="https://userbase.linkorb-staging.com" />
   <input type="hidden" name="loginSuccessUrl" value="/login-success/{jwt}" />
   <div id="userbase__login_error" style="display:none;">
     The provided username/password don't match, please try again

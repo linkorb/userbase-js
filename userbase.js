@@ -9,18 +9,20 @@
   function onSubmit(e) {
     e.preventDefault();
 
-    const url = form.loginSuccessUrl.value;
+    const userbaseUrl = form.userbaseUrl.value;
+    const loginSuccessUrl = form.loginSuccessUrl.value;
     const username = form.userbaseUsername.value;
     const password = form.userbasePassword.value;
 
     const xhr = new XMLHttpRequest();
 
-    xhr.open('POST', 'login');
+    xhr.open('POST', userbaseUrl);
     xhr.send(JSON.stringify({ username, password }));
 
     xhr.onload = () => {
       if (xhr.status === 200)
-        location.href = url.replace('{jwt}', JSON.parse(xhr.response).jwt);
+        location.href = loginSuccessUrl
+          .replace('{jwt}', JSON.parse(xhr.response).jwt);
       else errorMessage.style.display = 'block';
     };
   }
